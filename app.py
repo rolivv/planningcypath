@@ -569,7 +569,7 @@ def render_calendar():
             tgt = round(p["parts"] / T * total_month_act) if T else 0
             mode_lbl = f"Concentré ≤{conc_max_days(p)}j/sem" if p["mode"] == "concentrated" else "Lissé"
             leg_html += (f"<span class='leg-chip'>"
-                         f"<span class='leg-dot' style='background:{p[\"color\"]}'></span>"
+                         f"<span class='leg-dot' style='background:{p['color']}'></span>"
                          f"<strong>{p['name']}</strong> "
                          f"<span class='bdg bdg-teal'>{p['parts']}p · {pct}%</span> "
                          f"<span style='font-size:11px;color:#8898a9'>{mode_lbl}</span> "
