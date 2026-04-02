@@ -616,7 +616,7 @@ def render_calendar():
                 diff_cls = "wdiff-ok" if abs(diff) <= t * 0.05 + 0.5 else "wdiff-bad"
                 diff_str = f"{'+' if diff >= 0 else ''}{diff:.0f}"
                 hdr_sum += (f"<div class='wsitem'>"
-                            f"<span style='width:8px;height:8px;border-radius:50%;background:{p[\"color\"]};display:inline-block'></span>"
+                            f"<span style='width:8px;height:8px;border-radius:50%;background:{p['color']};display:inline-block'></span>"
                             f"<span style='font-size:10px;color:rgba(255,255,255,.5)'>{p['name'].split()[-1]}</span>"
                             f"<span class='wact'>{a:.0f}</span><span class='wsit'>/{t:.0f}</span>"
                             f"<span class='{diff_cls}'>{diff_str}</span></div>")
@@ -865,7 +865,7 @@ def render_pathologistes():
         with pc1:
             st.markdown(
                 f"<div style='display:flex;align-items:center;gap:8px'>"
-                f"<span style='width:14px;height:14px;border-radius:50%;background:{p[\"color\"]};flex-shrink:0;display:inline-block'></span>"
+                f"<span style='width:14px;height:14px;border-radius:50%;background:{p['color']};flex-shrink:0;display:inline-block'></span>"
                 f"<strong>{p['name']}</strong>"
                 f"</div>", unsafe_allow_html=True)
         with pc2:
@@ -1003,7 +1003,7 @@ def render_stats():
         # Bar chart
         bar_pct = min(100, act / tgt * 100) if tgt else 0
         bar_html = (f"<div class='prog-bar-wrap'>"
-                    f"<div class='prog-bar' style='width:{bar_pct:.0f}%;background:{p[\"color\"]}'></div></div>")
+                    f"<div class='prog-bar' style='width:{bar_pct:.0f}%;background:{p['color']}'></div></div>")
 
         diff_style = "color:#2a7d50" if abs(diff) <= tgt*0.03 else ("color:#b73640" if diff < 0 else "color:#c87b2d")
         diff_d_style = "color:#2a7d50" if diff_d == 0 else "color:#b73640"
@@ -1013,7 +1013,7 @@ def render_stats():
             with r1:
                 st.markdown(
                     f"<div style='display:flex;align-items:center;gap:8px;margin-bottom:4px'>"
-                    f"<span style='width:14px;height:14px;border-radius:50%;background:{p[\"color\"]};display:inline-block'></span>"
+                    f"<span style='width:14px;height:14px;border-radius:50%;background:{p['color']};display:inline-block'></span>"
                     f"<strong>{p['name']}</strong>"
                     f"<span class='bdg bdg-teal'>{p['parts']}p · {pct}%</span>"
                     f"</div>",
@@ -1042,13 +1042,13 @@ def render_stats():
     for p in SS.pathologistes:
         w = (p["parts"] / T * 100) if T else 0
         lbl = p["name"].split()[-1] if w > 7 else ""
-        bar_html += f"<div style='width:{w:.1f}%;background:{p[\"color\"]};display:flex;align-items:center;justify-content:center;color:white;font-size:11px;font-weight:600;overflow:hidden;white-space:nowrap;padding:0 3px'>{lbl}</div>"
+        bar_html += f"<div style='width:{w:.1f}%;background:{p['color']};display:flex;align-items:center;justify-content:center;color:white;font-size:11px;font-weight:600;overflow:hidden;white-space:nowrap;padding:0 3px'>{lbl}</div>"
     bar_html += "</div>"
     leg_html = "<div style='display:flex;flex-wrap:wrap;gap:7px'>"
     for p in SS.pathologistes:
         pct = round(p["parts"] / T * 100) if T else 0
         leg_html += (f"<span class='leg-chip'>"
-                     f"<span class='leg-dot' style='background:{p[\"color\"]}'></span>"
+                     f"<span class='leg-dot' style='background:{p['color']}'></span>"
                      f"<strong>{p['name']}</strong> — {pct}% ({p['parts']}p)"
                      f"</span>")
     leg_html += "</div>"
